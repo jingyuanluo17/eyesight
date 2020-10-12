@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>eyesight challenge</title>
+    <meta charset="UTF-8"/>
+<style type="text/css">
+    * {
+        margin:0px;
+        padding:0px;
+        border: 0px;
+    }
+     .wide{
+         width:100px;
+         height:100px;
+         display: inline;
+         background-color:green;
+         float: left;
+     }
+     .body_class{
+         margin-left: 30%;
+         margin-right: 20%;
+         margin-top: 10%;
+         height: 500px;
+     }
+     .body_game{
+         float: none;
+         height: 500px;
+     }
+     .game_line{
+         height: 100px;
+     }
+     h1{
+         margin-bottom: 20px;
+         margin-left: 15%;
+     }
+     h2{
+     }
+</style>
+<script language="javascript">
+var name = 1;
+var level = 1;
+var health = 100;
+function test(event) {
+    view.innerText = level;
+    str = event.id;
+    str1 = str.substring(2);
+    click_id = Number(str1);
+    
+    if(level == 1 || name == click_id){
+        level ++;
+        var num = Math.floor(Math.random()*4096);
+        var color_num = "#";
+        color_num += num.toString(16);
+        for(var i = 1; i <= 16 ; i++) {
+          var txt = "bu" ;
+          txt += i.toString();
+          var div1 = document.getElementById(txt);
+          div1.style.backgroundColor = color_num;
+        }
+        name_temp = name;
+        name = (Math.floor(Math.random()*100%16))
+
+        if (name<1)name++;
+        if(name_temp == name) name++;
+        var rand_num = 0;
+        if(num + 5 <= 4096){
+            if(health <= 20){
+                rand_num = num += 1;
+            }
+            else{
+                rand_num = num += 3;
+            }
+        }
+        else
+            rand_num = num -= 5;
+        health -= 5;
+        var color_num = "#";
+        color_num += rand_num.toString(16);
+        var txt = "bu" ;
+        txt += name.toString()
+        var div1 = document.getElementById(txt);
+        div1.style.backgroundColor = color_num;
+     }
+     else{
+        alert("Not This One!")
+     }
+   }
+</script>
+</head><body>
+<div class="body_class">
+    <h1>eyesight challenge</h1>
+    <div id="view" style="float:right">0</div>
+    <div class="body_game">
+        <div class="game_line">
+            <div class="wide" id="bu1" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu2" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu3" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu4" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        </div>
+        <div class="game_line">
+            <div class="wide" id="bu5" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu6" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu7" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu8" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        </div>
+        <div class="game_line">
+            <div class="wide" id="bu9" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu10" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu11" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 85);"></div>
+            <div class="wide" id="bu12" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        </div>
+            <div class="game_line">
+            <div class="wide" id="bu13" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu14" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu15" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class="wide" id="bu16" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        </div>
+    </div>
+    
+</h2>
+</div>
+</body>
+</html>
