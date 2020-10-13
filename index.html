@@ -9,6 +9,10 @@
         padding:0px;
         border: 0px;
     }
+     #check{
+         color:blue;
+         font-size: xx-large;
+     }
      .wide{
          width:100px;
          height:100px;
@@ -16,108 +20,120 @@
          background-color:green;
          float: left;
      }
+     h1{
+         margin-bottom: 70px;
+         margin-left: 10%;
+         color : blueviolet;
+     }
+     h2{
+         margin-left: 93%;
+         color: coral;
+     }
      .body_class{
          margin-left: 30%;
          margin-right: 20%;
          margin-top: 10%;
          height: 500px;
      }
-     .body_game{
-         float: none;
-         height: 500px;
-     }
-     .game_line{
+     .game_square{
          height: 100px;
      }
-     h1{
-         margin-bottom: 20px;
-         margin-left: 15%;
+     .game_content{
+         float: none;
+         height: 1000px;
      }
-     h2{
-     }
+     
 </style>
 <script language="javascript">
-var name = 1;
-var level = 1;
-var health = 100;
-function test(event) {
-    view.innerText = level;
+let name = 1;
+let level = 1;
+function run(event) {
+    check.innerText = level;
     str = event.id;
     str1 = str.substring(2);
     click_id = Number(str1);
+    let num = Math.floor(Math.random()*4096);
+    var color_num = "#";
+    let rand_num = 0;
     
-    if(level == 1 || name == click_id){
+    if(name == click_id || level == 1){
         level ++;
-        var num = Math.floor(Math.random()*4096);
-        var color_num = "#";
         color_num += num.toString(16);
-        for(var i = 1; i <= 16 ; i++) {
-          var txt = "bu" ;
+        let i = 1;
+        while (i <= 16) {
+          let txt = "bu" ;
           txt += i.toString();
-          var div1 = document.getElementById(txt);
+          let div1 = document.getElementById(txt);
           div1.style.backgroundColor = color_num;
+          i += 1;
         }
-        name_temp = name;
+        let health = 100;
+        name_try = name;
         name = (Math.floor(Math.random()*100%16))
-
-        if (name<1)name++;
-        if(name_temp == name) name++;
-        var rand_num = 0;
+        if (name<1)name += 1;
+        if(name_try == name) name += 1;
+        
         if(num + 5 <= 4096){
             if(health <= 20){
-                rand_num = num += 1;
+                num += 1;
+                rand_num = num;
+               
             }
             else{
-                rand_num = num += 3;
+                num += 3;
+                rand_num = num;
             }
         }
         else
-            rand_num = num -= 5;
+            rand_num = num;
+            num -= 5;
         health -= 5;
         var color_num = "#";
         color_num += rand_num.toString(16);
         var txt = "bu" ;
         txt += name.toString()
-        var div1 = document.getElementById(txt);
+        let div1 = document.getElementById(txt);
         div1.style.backgroundColor = color_num;
      }
+    
      else{
         alert("Not This One!")
      }
    }
 </script>
 </head><body>
-<div class="body_class">
+<div class = "body_class">
     <h1>eyesight challenge</h1>
-    <div id="view" style="float:right">0</div>
-    <div class="body_game">
-        <div class="game_line">
-            <div class="wide" id="bu1" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu2" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu3" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu4" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+    <h2>LEVEL</h2>
+    <div id = "check" style = "float:right">0</div>
+    <div class = "game_content">
+        <div class = "game_square">
+            <div class = "wide" id = "bu1" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu2" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu3" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu4" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
         </div>
-        <div class="game_line">
-            <div class="wide" id="bu5" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu6" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu7" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu8" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        <div class = "game_square">
+            <div class = "wide" id = "bu5" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu6" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu7" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu8" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
         </div>
-        <div class="game_line">
-            <div class="wide" id="bu9" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu10" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu11" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 85);"></div>
-            <div class="wide" id="bu12" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+        <div class = "game_square">
+            <div class = "wide" id = "bu9" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu10" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu11" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu12" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
         </div>
-            <div class="game_line">
-            <div class="wide" id="bu13" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu14" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu15" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
-            <div class="wide" id="bu16" type="button" value="" onclick="test(this)" style="background-color: rgb(187, 68, 34);"></div>
+            <div class = "game_square">
+            <div class = "wide" id = "bu13" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu14" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu15" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
+            <div class = "wide" id = "bu16" type = "button" value = "" onclick = "run(this)" style = "background-color: red;"></div>
         </div>
+        
     </div>
-    
-</h2>
 </div>
 </body>
 </html>
+
